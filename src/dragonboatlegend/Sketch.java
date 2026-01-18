@@ -12,7 +12,7 @@ import processing.core.PFont;
  */
 public class Sketch extends PApplet {
     private PFont normalSize, titleSize;
-    private PImage background1, background2;
+    private PImage background1, background2, background3;
     private static int scene = 0;
 
     public void settings() {
@@ -21,17 +21,17 @@ public class Sketch extends PApplet {
     public void setup(){
         background(255);
         scene = 0;
-        normalSize = createFont("Font/Santiago-Sunrise.otf", 50);
-        titleSize = createFont("Font/Santiago-Sunrise.otf", 17);
+        normalSize = createFont("Font/Santiago-Sunrise.otf", 17);
+        titleSize = createFont("Font/Santiago-Sunrise.otf", 50);
         background1 = loadImage("Background/background1.png");
         background2 = loadImage("Background/background2.png");
-
+        background3 = loadImage("Background/background3.png");
     }
     public void draw(){
         switch (scene){
             case 0:
                 imageMode(CENTER); image(background1, 300, 250, 600, 500);
-                textFont(normalSize);
+                textFont(titleSize);
                 textAlign(CENTER);
                 text("Dragon Boat Legend", 300, 200);
                 fill(0, 255, 0);
@@ -45,7 +45,7 @@ public class Sketch extends PApplet {
                 break;
             case 1:
                 imageMode(CENTER); image(background2, 300, 250, 600, 500);
-                textFont(titleSize);
+                textFont(normalSize);
                 fill(255); 
                 rect(50, 325, 500, 100);
                 fill(0);
@@ -57,7 +57,7 @@ public class Sketch extends PApplet {
                 break;
             case 2:
                 imageMode(CENTER); image(background2, 300, 250, 600, 500);
-                textFont(titleSize);
+                textFont(normalSize);
                 fill(255); 
                 rect(50, 325, 500, 100);
                 fill(0);
@@ -70,6 +70,33 @@ public class Sketch extends PApplet {
                 rect(150, 450, 60, 20);
                 fill(0);
                 text("Yes", 180, 465);
+                break;
+            case 3:
+                background(0);
+                textAlign(CENTER); 
+                fill(255); 
+                textFont(titleSize);
+                text("You Died", 600/2, 500/2 - 20); 
+                textFont(normalSize);
+                text("Neighbouring kingdom killed you and the villagers", 600/2, 500/2 + 20);
+                fill(255, 255, 255);
+                rect(600/2 - 100, 500/2 + 74/2, 200, 74);
+                fill(0);
+                textFont(titleSize);
+                text("Restart", 600/2, 500/2 + 93); 
+                break;
+            case 4:
+                imageMode(CENTER); image(background3, 300, 250, 600, 500);
+                textFont(normalSize);
+                fill(255); 
+                rect(50, 325, 500, 100);
+                fill(0);
+                text("You got exiled as the King did not believe you. Sadness took over and you decide to suicide in river. Point of view is now changing to villagers...", 50 + 10, 325 + 20, 500 - 20, 100 - 30);
+                fill(255); 
+                rect(490, 450, 60, 20);
+                fill(0);
+                text("Next", 520, 465);
+                break;
         }
 }
 
@@ -87,6 +114,23 @@ public class Sketch extends PApplet {
             case 1:
                 if (mouseX > 490 && mouseX < 490 + 60 && mouseY > 450 && mouseY < 450 + 20){
                     scene = 2;
+                }
+            break;
+            case 2:
+                if (mouseX > 150 && mouseX < 150 + 60 && mouseY > 450 && mouseY < 450 + 20) { 
+                    scene = 4; 
+                } 
+                else if (mouseX > 400 && mouseX < 400 + 60 && mouseY > 450 && mouseY < 450 + 20) { 
+                    scene = 3; 
+                }
+            break;
+            case 3:
+                if (mouseX > 600/2 - 100 && mouseX < 600/2 - 100 + 200 && mouseY > 500/2 + 74/2 && mouseY < 500/2 + 74/2 + 74) {
+                    scene = 0;
+                }
+            case 4:
+                if (mouseX > 490 && mouseX < 490 + 60 && mouseY > 450 && mouseY < 450 + 20){
+                    scene = 5;
                 }
             break;
         }
