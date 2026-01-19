@@ -118,8 +118,7 @@ public class Sketch extends PApplet {
     
     private class CompanionState extends GameEntity {
         boolean collected;
-        float targetX, targetY;
-        
+        float targetX, targetY;   
         PImage sprite;
         
         CompanionState(PApplet app, String imagePath) {
