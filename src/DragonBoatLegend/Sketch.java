@@ -177,12 +177,12 @@ public class Sketch extends PApplet {
         }
         
         /**
-         * Update companion position relative to player.
+         * Update companion position relative to villager.
          * Implements a smooth following mechanism with easing.
          * 
-         * @param playerX Current player x-coordinate
-         * @param playerY Current player y-coordinate
-         * @param offset Distance offset from player
+         * @param VillagerX Current villager x-coordinate
+         * @param VillagerY Current villager y-coordinate
+         * @param offset Distance offset from villager
          * @param companionIndex Index of companion for positioning
          */
         private void updatePosition(float villagerX, float villagerY, float offset, int companionIndex) {
