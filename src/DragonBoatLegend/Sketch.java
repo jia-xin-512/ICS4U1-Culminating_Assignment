@@ -117,9 +117,9 @@ public class Sketch extends PApplet {
     }
     
     private class CompanionState extends GameEntity {
-        boolean collected;
-        float targetX, targetY;   
-        PImage sprite;
+        private boolean collected;
+        private float targetX, targetY;   
+        private PImage sprite;
         
         CompanionState(PApplet app, String imagePath) {
             super(0, 0, null);
@@ -139,7 +139,7 @@ public class Sketch extends PApplet {
             }
         }
 
-        void updatePosition(float villagerX, float villagerY, float offset, int companionIndex) {
+        private void updatePosition(float villagerX, float villagerY, float offset, int companionIndex) {
             if (collected) {
                 boolean isUpPressed = keyPressed && keyCode == UP;
                 boolean isDownPressed = keyPressed && keyCode == DOWN;
