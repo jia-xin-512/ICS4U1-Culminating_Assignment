@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Sketch class for the "Dragon Boat Legend" game.
  * This is a Role-playing and Mini Game based on the Legend that created the Dragon Boat Festival.
- * Usage of AI includes finding out calculations (including boxes, sizes, and such), easing, offsets, and pop/push Matrix
+ * Usage of AI includes finding out calculations (including boxes, sizes, and such), easing, offsets, pop/push Matrix, and some Comments
  * @author Jia Xin Li
  * @version 1.0
  */
