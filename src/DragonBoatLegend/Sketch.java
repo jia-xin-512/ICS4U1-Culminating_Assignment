@@ -25,7 +25,7 @@ public class Sketch extends PApplet {
 
     private static final int VILLAGER_SIZE = 40;
     private static final int WALL_SIZE = 40;
-    private static final int COMPANION_SIZE = 20;
+    private static final int COMPANION_SIZE = 50;
     private static final int ATTACK_SIZE = 50;
     
     private static final int RIGHT = 1;
@@ -176,19 +176,19 @@ public class Sketch extends PApplet {
     private float currentSpeed = baseSpeed;
     
     private int[][] maze = {
-        {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 4, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 0, 0, 0, 5, 0, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1},
-        {1, 0, 3, 0, 0, 0, 6, 0, 0, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1},
-        {1, 0, 0, 0, 2, 0, 6, 0, 0, 1, 1, 1, 1},
-        {1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1}
+        {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 4, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 0, 0, 0, 5, 0, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1},
+        {1, 0, 3, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 2, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2, 1},
+        {1, 0, 0, 0, 2, 0, 6, 0, 0, 1, 1, 1, 1, 2, 1},
+        {1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1},
+        {1, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 6, 0, 2, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1}
     };
     
     private int calculateScore(int timeLeft, int companionsCollected) {
@@ -200,12 +200,11 @@ public class Sketch extends PApplet {
         
         textAlign(CENTER, CENTER);
         textFont(titleSize);
-        fill(0);
-        text("Save Player!", width/2, 80);
+        fill(255, 255, 255);
+        text("Save Player!", width/2, 150);
         
         textFont(normalSize);
-        fill(80);
-        text("How to Play:", width/2, 290);
+        text("How to Play:", width/2, 225);
         
         textFont(normalSize);
         String[] instructions = {
@@ -218,11 +217,11 @@ public class Sketch extends PApplet {
         };
         
         for (int i = 0; i < instructions.length; i++) {
-            text(instructions[i], width/2, 320 + i * 20);
+            text(instructions[i], width/2, 275 + i * 20);
         }
         
         textFont(normalSize);
-        text("Press ENTER to start", width/2, height - 40);
+        text("Press ENTER to start", width/2, 425);
     }
     
     private void drawNameEntry() {
@@ -231,7 +230,7 @@ public class Sketch extends PApplet {
         textAlign(CENTER, CENTER);
         textFont(titleSize);
         fill(255);
-        text("Game Over!", width/2, height/3);
+        text("Congrats! Saved!", width/2, height/3);
         
         int companionsCollected = (Cow.collected ? 1 : 0) +
                                 (Chicken.collected ? 1 : 0) +
