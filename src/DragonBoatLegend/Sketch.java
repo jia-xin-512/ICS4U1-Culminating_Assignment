@@ -168,7 +168,7 @@ public class Sketch extends PApplet {
             // Load and resize companion sprite
             this.sprite = app.loadImage(imagePath);
             if (this.sprite != null) {
-                this.sprite.resize(COMPANION_SIZE, COMPANION_SIZE);
+                this.sprite.resize(size, size);
             }
         }
         /**
