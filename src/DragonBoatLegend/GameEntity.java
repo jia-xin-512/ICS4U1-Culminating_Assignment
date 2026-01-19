@@ -11,7 +11,6 @@ import processing.core.PImage;
  * Usage of AI includes protected variables and abstract method
  * @author Jia Xin
  */
-
 public abstract class GameEntity {
     // The x-coordinate of the game entity on the game screen
     protected float x;
@@ -19,7 +18,6 @@ public abstract class GameEntity {
     protected float y;
     // The visual representation (sprite) of the game entity
     protected PImage sprite;
-    
     /**
      * Constructs a new GameEntity with specified position and sprite.
      * @param x The initial x-coordinate of the entity
@@ -34,7 +32,6 @@ public abstract class GameEntity {
         // Set the entity's sprite
         this.sprite = sprite; 
     }
-    
     /**
      * Abstract method to draw the game entity.
      * @param app The PApplet context used for drawing

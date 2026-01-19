@@ -2,26 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package DragonBoatLegend;
 import processing.core.PApplet;
 import java.io.*;
 import java.util.*;
-
 /**
  * Represents a player's score in the game, implementing Comparable for sorting.
  * This class stores a player's name and their score, allowing easy comparison and ranking.
  * Usage of AI includes 'implements Comparable<Score>'
  * @author Jia Xin Li
  */
-
 public class Score implements Comparable<Score> {
     // The name of the player who achieved the score
     String name;
-    
     // The numeric value of the player's score
     int score;
-    
     /**
      * Constructs a new Score object with a player's name and score.
      * @param name The name of the player
@@ -33,7 +28,6 @@ public class Score implements Comparable<Score> {
         // Initialize the player's score
         this.score = score;  
     }
-    
     /**
      * Compares this score with another score for sorting purposes.
      * Sorts in descending order, so higher scores come first.

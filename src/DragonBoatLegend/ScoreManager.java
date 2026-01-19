@@ -6,14 +6,12 @@ package DragonBoatLegend;
 import processing.core.PApplet;
 import java.io.*;
 import java.util.*;
-
 /**
  * Manages high scores for the game, handling loading, saving, and retrieving scores.
  * Utilizes Processing file handling capabilities and provides score persistence.
  * Usage of AI includes ArrayList<Score>, a bit of loadScores, and a bit of saveScore, specifically, the Buffer Reader portion
  * @author Jia Xin Li
  */
-
 public class ScoreManager {
     // The filename where high scores are stored
     private String filename;
@@ -21,7 +19,6 @@ public class ScoreManager {
     private ArrayList<Score> highScores;
     // Reference to the parent PApplet for file path and error handling
     private PApplet parent;
-    
     /**
      * Constructs a ScoreManager and initializes score loading.
      * 
@@ -38,7 +35,6 @@ public class ScoreManager {
         // Load existing scores on initialization
         loadScores();  
     }
-    
     /**
      * Loads high scores from the file, creating the file if it doesn't exist.
      * Reads scores line by line, parsing name and score values.
@@ -52,7 +48,6 @@ public class ScoreManager {
                 file.createNewFile();  
                 return;
             }
-            
             // Read scores from file
             BufferedReader reader = parent.createReader(filename);
             String line;
@@ -71,7 +66,6 @@ public class ScoreManager {
             System.out.println("Error loading scores: " + e.getMessage());
         }
     }
-    
     /**
      * Saves a new score to the high scores list and persists to file.
      * Sorts scores in descending order before saving.
@@ -84,7 +78,6 @@ public class ScoreManager {
         highScores.add(new Score(name, score));  
         // Sort scores in descending order
         Collections.sort(highScores);  
-        
         try {
             // Write sorted scores to file
             PrintWriter writer = parent.createWriter(filename);
@@ -101,7 +94,6 @@ public class ScoreManager {
             System.out.println("Error saving score: " + e.getMessage());
         }
     }
-    
     /**
      * Retrieves the top scores from the high scores list.
      * 

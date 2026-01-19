@@ -3,13 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DragonBoatLegend;
-
 /**
  *
  * @author Jia Xin Li
  */
 public class DragonBoat {
-
     /**
      * @param args the command line arguments
      */

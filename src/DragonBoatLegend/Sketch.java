@@ -68,7 +68,6 @@ public class Sketch extends PApplet {
     private CompanionState Cow; 
     private CompanionState Chicken; 
     private CompanionState Pig;
-    
     @Override
     public void settings() {
         size(600, 500);
@@ -133,7 +132,6 @@ public class Sketch extends PApplet {
         // Set the total game duration (in milliseconds) — here, 180 seconds (3 minutes)
         gameTimer = 180000; 
     }
-    
     /**
      * Inner class representing companion state and behavior.
      * Extends GameEntity to provide additional game-specific functionality.
@@ -144,7 +142,6 @@ public class Sketch extends PApplet {
         // Target x-coordinate for companion movement
         float targetX, targetY;
         private PImage sprite;
-        
         /**
          * Constructor for CompanionState.
          * @param imagePath Path to companion sprite image
@@ -159,7 +156,6 @@ public class Sketch extends PApplet {
                 this.sprite.resize(COMPANION_SIZE, COMPANION_SIZE);
             }
         }
-        
         /**
          * Overloaded Constructor for CompanionState.
          * @param imagePath Path to companion sprite image
@@ -175,7 +171,6 @@ public class Sketch extends PApplet {
                 this.sprite.resize(COMPANION_SIZE, COMPANION_SIZE);
             }
         }
-        
         /**
          * Update companion position relative to villager.
          * Implements a smooth following mechanism with easing.
@@ -221,7 +216,6 @@ public class Sketch extends PApplet {
             }
         }
     }
-    
     // Movement variables
     // Base movement speed
     private float baseSpeed = 5;
@@ -253,7 +247,6 @@ public class Sketch extends PApplet {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1},
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1}
     };
-    
     /**
      * Calculate player's final score based on time left and companions collected.
      * 
@@ -264,7 +257,6 @@ public class Sketch extends PApplet {
     private int calculateScore(int timeLeft, int companionsCollected) {
         return (timeLeft / 1000) * 100 + (companionsCollected * 500);
     }
-    
     /**
      * Renders the title screen with game instructions and animated characters.
      * Displays game title, companion characters, and how-to-play instructions.
@@ -348,7 +340,6 @@ public class Sketch extends PApplet {
             Pig.updatePosition(villagerX, villagerY, 30, 2);
         }
     }
-    
     /**
      * Renders the game maze with various tile types and companion positions.
      * Handles rendering of ground, walls, water, breakable walls, and companions.
@@ -406,7 +397,6 @@ public class Sketch extends PApplet {
             }
         }
     }
-    
     /**
      * Main game rendering method called every frame.
      * Handles game state, rendering, animations, and game logic.
@@ -579,7 +569,6 @@ public class Sketch extends PApplet {
             break;
         }
     }
-
     /**
      * Handles mouse input for game interactions.
      * Manages player next button, start button, yes button, no button, restart button, or exit button
@@ -624,7 +613,6 @@ public class Sketch extends PApplet {
             break;
         }
     }
-    
     /**
      * Handles keyboard input for game interactions.
      * Manages player movement, companion collection, and special actions.
