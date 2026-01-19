@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  * Sketch class for the "Dragon Boat Legend" game.
  * This is a Role-playing and Mini Game based on the Legend that created the Dragon Boat Festival.
+ * Usage of AI includes finding out calculations (including boxes, sizes, and such), easing, offsets, and pop/push Matrix
  * @author Jia Xin Li
  * @version 1.0
  */
@@ -159,6 +160,11 @@ public class Sketch extends PApplet {
             }
         }
         
+        /**
+         * Overloaded Constructor for CompanionState.
+         * @param imagePath Path to companion sprite image
+         * @param size for companion sprite image resize
+         */
         CompanionState(PApplet app, String imagePath, int size) {
             super(0, 0, null);
             // Initially not collected

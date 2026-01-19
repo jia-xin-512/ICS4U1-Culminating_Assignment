@@ -8,6 +8,7 @@ import processing.core.PImage;
 /**
  * An abstract base class representing a game entity with position and sprite.
  * This class provides a structure for location and visual representation.
+ * Usage of AI includes protected variables and abstract method
  * @author Jia Xin
  */
 

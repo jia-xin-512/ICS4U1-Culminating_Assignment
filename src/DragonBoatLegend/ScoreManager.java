@@ -10,6 +10,7 @@ import java.util.*;
 /**
  * Manages high scores for the game, handling loading, saving, and retrieving scores.
  * Utilizes Processing file handling capabilities and provides score persistence.
+ * Usage of AI includes ArrayList<Score>, a bit of loadScores, and a bit of saveScore, specifically, the Buffer Reader portion
  * @author Jia Xin Li
  */
 

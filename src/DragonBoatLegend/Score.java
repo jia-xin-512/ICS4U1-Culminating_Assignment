@@ -11,6 +11,7 @@ import java.util.*;
 /**
  * Represents a player's score in the game, implementing Comparable for sorting.
  * This class stores a player's name and their score, allowing easy comparison and ranking.
+ * Usage of AI includes 'implements Comparable<Score>'
  * @author Jia Xin Li
  */
 
