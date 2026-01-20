@@ -39,32 +39,32 @@ public class ScoreManager {
      * Loads high scores from the file, creating the file if it doesn't exist.
      * Reads scores line by line, parsing name and score values.
      */
-    public void loadScores() {
-        try {
-            // Create file if it doesn't exist
-            File file = new File(parent.sketchPath(filename));
-            if (!file.exists()) {
-                // Create new file if not present
-                file.createNewFile();  
-                return;
-            }
-            // Read scores from file
-            BufferedReader reader = parent.createReader(filename);
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Split line into name and score
-                String[] parts = line.split(",");  
-                if (parts.length == 2) {
-                    // Add score to high scores list
+    public void loadScores() { 
+        try { 
+            File file = new File(filename);
+            // Try to open the file directly 
+            Scanner scan = new Scanner(file); 
+            // First pass: count lines 
+            int count = 0; 
+            while (scan.hasNextLine()) { 
+                count++;
+                scan.nextLine(); 
+            } 
+            scan.close(); 
+            // Second pass: read actual data 
+            Scanner read = new Scanner(file); 
+            for (int i = 0; i < count; i++) { 
+                String line = read.nextLine();
+                String[] parts = line.split(","); 
+                if (parts.length == 2) { 
                     highScores.add(new Score(parts[0], Integer.parseInt(parts[1])));
-                }
+                } 
             }
-            // Close file reader
-            reader.close();  
-        } catch (IOException e) {
-            // Print error message if loading fails
-            System.out.println("Error loading scores: " + e.getMessage());
-        }
+            read.close(); 
+        } catch (IOException e) { 
+            // If file doesn't exist OR can't be read 
+            System.out.println("Error loading scores: " + e.getMessage()); 
+        } 
     }
     /**
      * Saves a new score to the high scores list and persists to file.
