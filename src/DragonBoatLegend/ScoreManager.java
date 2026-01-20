@@ -73,25 +73,23 @@ public class ScoreManager {
      * @param name The name of the player
      * @param score The score achieved by the player
      */
-    public void saveScore(String name, int score) {
-        // Add new score
-        highScores.add(new Score(name, score));  
-        // Sort scores in descending order
-        Collections.sort(highScores);  
-        try {
-            // Write sorted scores to file
-            PrintWriter writer = parent.createWriter(filename);
-            for (Score s : highScores) {
-                // Write each score
-                writer.println(s.name + "," + s.score);  
-            }
-            // Ensure all data is written
-            writer.flush();  
-            // Close file writer
-            writer.close();  
-        } catch (Exception e) {
-            // Print error message if saving fails
-            System.out.println("Error saving score: " + e.getMessage());
+    public void saveScore(String name, int score) { 
+        // Add new score 
+        highScores.add(new Score(name, score)); 
+        // Sort scores in descending order 
+        Collections.sort(highScores); 
+        try { 
+            File file = new File(filename);
+            // Create writer for the file 
+            PrintWriter writer = new PrintWriter(file); 
+            // Write each score 
+            for (Score s : highScores) { 
+                writer.println(s.name + "," + s.score); 
+            } 
+            writer.flush(); 
+            writer.close(); 
+        } catch (Exception e) { 
+            System.out.println("Error saving score: " + e.getMessage()); 
         }
     }
     /**
